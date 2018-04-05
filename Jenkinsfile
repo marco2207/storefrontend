@@ -2,6 +2,6 @@
 
 @Library('MicroserviceBuilder') _
 microserviceBuilderPipeline {
-  image = 'storefrontend',
+  image = 'storefrontend'
   namespace = 'my-namespace'
 }
