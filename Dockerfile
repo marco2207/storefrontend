@@ -1,4 +1,5 @@
-FROM ibmcom/ibmnode
+#FROM ibmcom/ibmnode
+FROM node:6
 
 ADD public/StoreWebApp /StoreWebApp
 
