@@ -1,5 +1,5 @@
-#FROM ibmcom/ibmnode
-FROM node:6
+FROM ibmcom/ibmnode
+#FROM node:6
 
 ADD public/StoreWebApp /StoreWebApp
 
@@ -12,7 +12,7 @@ RUN chmod a+x /usr/local/bin/jq
 # Install app dependencies
 COPY package.json /StoreWebApp/
 # RUN cd /StoreWebApp
-RUN npm install; npm prune --production
+#RUN npm install; npm prune --production
 
 # Install bower
 RUN npm -g install bower
