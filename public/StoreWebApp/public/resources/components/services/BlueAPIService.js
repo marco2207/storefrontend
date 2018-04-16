@@ -5,6 +5,7 @@ app.service('BlueAPIService',['$http', 'CONFIG', '$base64', function($http, CONF
 			errorCallback, access_token) {
 
 		//$http.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+		console.log("--> BlueAPIService invokeService call restUrl passed " + restUrl);
 
 		if (requestType == 'GET') {
 			$http({
