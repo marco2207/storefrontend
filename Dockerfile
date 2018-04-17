@@ -1,19 +1,15 @@
 FROM ibmcom/ibmnode
 #FROM node:6
 
-#COPY . /app
-ADD public/StoreWebApp /StoreWebApp
+COPY . /app
+#ADD public/StoreWebApp /StoreWebApp
 
-WORKDIR /StoreWebApp
+WORKDIR /app/public/StoreWebApp
 #WORKDIR /app
 
 # Install app dependencies
 ADD https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 /usr/local/bin/jq
 RUN chmod a+x /usr/local/bin/jq
-
-# Install app dependencies
-COPY package.json /app/
-RUN cd /app; npm install; npm prune --production
 
 # Install bower
 RUN npm -g install bower
@@ -21,6 +17,10 @@ RUN bower --allow-root install --force
 
 # Move bower folder
 RUN mv bower_components/ public/resources
+
+# Install app dependencies
+COPY package.json /app/
+RUN cd /app; npm install; npm prune --production
 
 ENV NODE_ENV production
 ENV PORT 3000
