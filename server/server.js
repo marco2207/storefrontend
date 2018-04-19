@@ -13,6 +13,7 @@ require('./services/index')(app);
 require('./routers/index')(app);
 
 // Add your code here
+app.use(express.static('public/StoreWebApp/public/resources'));
 
 const port = process.env.PORT || localConfig.port;
 app.listen(port, function(){
